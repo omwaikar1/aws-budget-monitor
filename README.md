@@ -25,8 +25,6 @@ Slack Incoming Webhook → alert message
 - **DynamoDB** — single-item-per-month dedup state (`budget-monitor-state`), on-demand billing, so alerts fire once per month rather than every day the threshold stays crossed.
 - **Slack Incoming Webhook** — one-way alert delivery; no bot/OAuth needed since the flow is entirely one-directional.
 
-See [DECISIONS.md](./DECISIONS.md) for the reasoning behind each of these choices, including what broke along the way.
-
 ## Setup
 
 1. **AWS CLI configured** — `aws configure` with a CLI-scoped access key, region `us-east-1` (Cost Explorer's API only has an endpoint there).
@@ -89,4 +87,4 @@ Runs a full smoke test: AWS auth, IAM role + policies, Lambda active state, Even
 
 ## Cost
 
-See [COST_BREAKDOWN.md](./COST_BREAKDOWN.md) — roughly $0.30/month, almost entirely from Cost Explorer API request charges (the one service in this stack not covered by AWS's always-free tier at this usage volume).
+Roughly $0.30/month, almost entirely from Cost Explorer API request charges (the one service in this stack not covered by AWS's always-free tier at this usage volume).
